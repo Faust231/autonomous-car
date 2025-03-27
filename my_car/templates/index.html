@@ -1,0 +1,37 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RC Car Web Interface</title>
+  </head>
+  <body>
+    <h1>RC Car Control Panel</h1>
+    <div>
+      <img
+        src="{{ url_for('video_feed') }}"
+        width="640"
+        height="480"
+        alt="Video Feed"
+      />
+    </div>
+    <div>
+      <h2>Telemetry Data</h2>
+      <div id="telemetry">Loading telemetry...</div>
+    </div>
+    <div>
+      <h2>Manual PWM Override</h2>
+      <form action="{{ url_for('update_pwm') }}" method="post">
+        <label for="steering">Steering PWM (µs):</label>
+        <input
+          type="text"
+          id="steering"
+          name="steering"
+          placeholder="1500"
+        /><br />
+        <label for="motor">Motor PWM (µs):</label>
+        <input type="text" id="motor" name="motor" placeholder="1500" /><br />
+        <input type="submit" value="Update PWM" />
+      </form>
+    </div>
+  </body>
+</html>
