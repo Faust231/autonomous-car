@@ -29,7 +29,7 @@ class PWMController:
     def set_steering(self, pulsewidth):
         """
         Set the steering servo pulsewidth in microseconds.
-        Typical range: 1000 (left) to 2000 (right), with 1500 as center.
+        Typical range: 1000 (rechts) to 2000 (links), with 1500 as mitte.
         :param pulsewidth: Pulsewidth in microseconds.
         """
         self.pi.set_servo_pulsewidth(self.steering_pin, pulsewidth)
@@ -39,7 +39,7 @@ class PWMController:
     def set_motor(self, pulsewidth):
         """
         Set the motor ESC pulsewidth in microseconds.
-        Typical range: 1000 (stop) to 2000 (full throttle).
+        Typical range: 1000 (backwards) to 1500 (stop) to 2000 (full throttle).
         :param pulsewidth: Pulsewidth in microseconds.
         """
         self.pi.set_servo_pulsewidth(self.motor_pin, pulsewidth)
